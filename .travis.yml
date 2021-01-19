@@ -18,7 +18,7 @@ before_install:
   - chmod +x gradlew
 
 before_deploy:
-  - zip -r stapring
+  - zip -r stapring *
   - mkdir -p deploy
   - mv stapring.zip deploy/stapring.zip
 
