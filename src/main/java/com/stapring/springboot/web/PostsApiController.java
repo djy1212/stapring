@@ -1,6 +1,7 @@
 package com.stapring.springboot.web;
 
 import com.stapring.springboot.service.posts.PostsService;
+import com.stapring.springboot.web.dto.PostsListResponseDto;
 import com.stapring.springboot.web.dto.PostsResponseDto;
 import com.stapring.springboot.web.dto.PostsSaveRequestDto;
 import com.stapring.springboot.web.dto.PostsUpdateRequestDto;

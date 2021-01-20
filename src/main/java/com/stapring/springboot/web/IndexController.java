@@ -40,4 +40,29 @@ public class IndexController {
 
         return "posts-update";
     }
+    @GetMapping("/board")
+    public String board(Model model, @LoginUser SessionUser user) {
+        model.addAttribute("posts", postsService.findAllDesc());
+        if (user != null) {
+            model.addAttribute("userName", user.getName());
+        }
+        return "board";
+    }
+    @GetMapping("/myitem")
+    public String myItem(Model model, @LoginUser SessionUser user) {
+        model.addAttribute("posts", postsService.findAllDesc());
+        if (user != null) {
+            model.addAttribute("userName", user.getName());
+        }
+        return "myitem";
+    }
+    @GetMapping("/metasem")
+    public String metaSem(Model model, @LoginUser SessionUser user) {
+
+        model.addAttribute("posts", postsService.findAllDesc());
+        if (user != null) {
+            model.addAttribute("userName", user.getName());
+        }
+        return "metasem";
+    }
 }
