@@ -65,4 +65,12 @@ public class IndexController {
         }
         return "metasem";
     }
+    @GetMapping("/login")
+    public String login(Model model, @LoginUser SessionUser user) {
+        model.addAttribute("posts", postsService.findAllDesc());
+        if (user != null) {
+            model.addAttribute("userName", user.getName());
+        }
+        return "login";
+    }
 }
