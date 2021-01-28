@@ -48,29 +48,12 @@ public class IndexController {
         }
         return "board";
     }
-    @GetMapping("/myitem")
-    public String myItem(Model model, @LoginUser SessionUser user) {
-        model.addAttribute("posts", postsService.findAllDesc());
-        if (user != null) {
-            model.addAttribute("userName", user.getName());
-        }
-        return "myitem";
-    }
-    @GetMapping("/metasem")
-    public String metaSem(Model model, @LoginUser SessionUser user) {
-
-        model.addAttribute("posts", postsService.findAllDesc());
-        if (user != null) {
-            model.addAttribute("userName", user.getName());
-        }
-        return "metasem";
-    }
-    @GetMapping("/login")
+    @GetMapping("/login-main")
     public String login(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
         if (user != null) {
             model.addAttribute("userName", user.getName());
         }
-        return "login";
+        return "login-main";
     }
 }
