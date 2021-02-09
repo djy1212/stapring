@@ -21,7 +21,6 @@ public class IndexController {
 
     @GetMapping("/")
     public String index(Model model, @LoginUser SessionUser user) {
-        model.addAttribute("posts", postsService.findAllDesc());
         if (user != null) {
             model.addAttribute("userName", user.getName());
         }
@@ -29,16 +28,31 @@ public class IndexController {
     }
 
     @GetMapping("/posts/save")
-    public String postsSave() {
+    public String postsSave(Model model, @LoginUser SessionUser user) {
+        if (user != null) {
+            model.addAttribute("userName", user.getName());
+        }
         return "posts-save";
     }
 
     @GetMapping("/posts/update/{id}")
-    public String postsUpdate(@PathVariable Long id, Model model) {
+    public String postsUpdate(@PathVariable Long id, Model model, @LoginUser SessionUser user) {
         PostsResponseDto dto = postsService.findById(id);
         model.addAttribute("post", dto);
-
+        if (user != null) {
+            model.addAttribute("userName", user.getName());
+        }
         return "posts-update";
+    }
+
+    @GetMapping("/posts/view/{id}")
+    public String postsView(@PathVariable Long id, Model model, @LoginUser SessionUser user) {
+        PostsResponseDto dto = postsService.findById(id);
+        model.addAttribute("post", dto);
+        if (user != null) {
+            model.addAttribute("userName", user.getName());
+        }
+        return "posts-view";
     }
     @GetMapping("/board")
     public String board(Model model, @LoginUser SessionUser user) {
@@ -48,9 +62,16 @@ public class IndexController {
         }
         return "board";
     }
+    @GetMapping("/metasem")
+    public String metaSem(Model model, @LoginUser SessionUser user) {
+        model.addAttribute("posts", postsService.findAllDesc());
+        if (user != null) {
+            model.addAttribute("userName", user.getName());
+        }
+        return "metasem";
+    }
     @GetMapping("/login-main")
     public String login(Model model, @LoginUser SessionUser user) {
-        model.addAttribute("posts", postsService.findAllDesc());
         if (user != null) {
             model.addAttribute("userName", user.getName());
         }

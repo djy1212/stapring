@@ -18,11 +18,16 @@ public class PostsApiController {
 
     @PostMapping("/api/v1/posts")
     public Long save(@RequestBody PostsSaveRequestDto requestDto) {
+        System.out.println("title: " + requestDto.getTitle());
+        System.out.println("title: " + requestDto.getAuthor());
+        System.out.println("title: " + requestDto.getContent());
+        System.out.println(requestDto);
         return postsService.save(requestDto);
     }
 
     @PutMapping("/api/v1/posts/{id}")
     public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto) {
+
         return postsService.update(id, requestDto);
     }
 
@@ -37,8 +42,8 @@ public class PostsApiController {
         return postsService.findById(id);
     }
 
-//    @GetMapping("/api/v1/posts/list")
-//    public List<PostsListResponseDto> findAll() {
-//        return postsService.findAllDesc();
-//    }
+    @GetMapping("/api/v1/posts/list")
+    public List<PostsListResponseDto> findAll() {
+        return postsService.findAllDesc();
+    }
 }
