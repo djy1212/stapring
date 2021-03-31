@@ -1,4 +1,4 @@
-package com.stapring.springboot.web;
+package com.stapring.springboot.web.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.ResolvableType;

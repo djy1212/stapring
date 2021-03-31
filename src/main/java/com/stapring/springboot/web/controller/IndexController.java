@@ -1,9 +1,9 @@
-package com.stapring.springboot.web;
+package com.stapring.springboot.web.controller;
 
 import com.stapring.springboot.config.auth.LoginUser;
 import com.stapring.springboot.config.auth.dto.SessionUser;
 import com.stapring.springboot.service.posts.PostsService;
-import com.stapring.springboot.web.dto.PostsResponseDto;
+import com.stapring.springboot.web.dto.post.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -69,6 +69,22 @@ public class IndexController {
             model.addAttribute("userName", user.getName());
         }
         return "metasem";
+    }
+    @GetMapping("/linearRegression")
+    public String linearRegression(Model model, @LoginUser SessionUser user) {
+        model.addAttribute("posts", postsService.findAllDesc());
+        if (user != null) {
+            model.addAttribute("userName", user.getName());
+        }
+        return "linearRegression";
+    }
+    @GetMapping("/analysisObject")
+    public String analysisObject(Model model, @LoginUser SessionUser user) {
+        model.addAttribute("analysis_object", postsService.findAllDesc());
+        if (user != null) {
+            model.addAttribute("userName", user.getName());
+        }
+        return "analysisObject";
     }
     @GetMapping("/login-main")
     public String login(Model model, @LoginUser SessionUser user) {

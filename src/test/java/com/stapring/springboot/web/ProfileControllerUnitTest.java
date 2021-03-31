@@ -1,5 +1,6 @@
 package com.stapring.springboot.web;
 
+import com.stapring.springboot.web.controller.ProfileController;
 import org.junit.Test;
 import org.springframework.mock.env.MockEnvironment;
 

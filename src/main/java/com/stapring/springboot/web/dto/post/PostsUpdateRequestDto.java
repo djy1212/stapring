@@ -1,4 +1,4 @@
-package com.stapring.springboot.web.dto;
+package com.stapring.springboot.web.dto.post;
 
 import lombok.Builder;
 import lombok.Getter;

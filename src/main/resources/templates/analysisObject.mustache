@@ -1,0 +1,55 @@
+{{>layout/header}}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">analysis object</h1>
+    <p class="mb-4"> View your analysis results. <a target="_blank" href="https://datatables.net">contect</a>.</p>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">analysis object</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Name</th>
+                        <th>Subject</th>
+                        <th>Classification</th>
+                        <th>Independent variable</th>
+                        <th>Dependent variable</th>
+                        <th>Modify date</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>No</th>
+                        <th>Name</th>
+                        <th>Subject</th>
+                        <th>Classification</th>
+                        <th>Independent variable</th>
+                        <th>Dependent variable</th>
+                        <th>Modify date</th>
+                    </tr>
+                    </tfoot>
+                    <tbody id="tbody">
+                    {{#posts}}
+                        <tr>
+                            <td>{{id}}</td>
+                            <td><a href="/posts/view/{{id}}">{{title}}</a></td>
+                            <td>{{author}}</td>
+                            <td>{{modifiedDate}}</td>
+                        </tr>
+                    {{/posts}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--index.js 추가-->
+    <script src="/js/app/index.js"></script>
+{{>layout/footer}}

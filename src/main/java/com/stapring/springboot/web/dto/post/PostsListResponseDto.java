@@ -1,4 +1,4 @@
-package com.stapring.springboot.web.dto;
+package com.stapring.springboot.web.dto.post;
 
 import com.stapring.springboot.domain.posts.Posts;
 import lombok.Getter;
@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 
 @Getter
 public class PostsListResponseDto {
+
     private Long id;
     private String title;
     private String author;

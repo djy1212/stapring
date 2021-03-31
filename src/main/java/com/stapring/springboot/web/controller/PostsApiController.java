@@ -1,10 +1,10 @@
-package com.stapring.springboot.web;
+package com.stapring.springboot.web.controller;
 
 import com.stapring.springboot.service.posts.PostsService;
-import com.stapring.springboot.web.dto.PostsListResponseDto;
-import com.stapring.springboot.web.dto.PostsResponseDto;
-import com.stapring.springboot.web.dto.PostsSaveRequestDto;
-import com.stapring.springboot.web.dto.PostsUpdateRequestDto;
+import com.stapring.springboot.web.dto.post.PostsListResponseDto;
+import com.stapring.springboot.web.dto.post.PostsResponseDto;
+import com.stapring.springboot.web.dto.post.PostsSaveRequestDto;
+import com.stapring.springboot.web.dto.post.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

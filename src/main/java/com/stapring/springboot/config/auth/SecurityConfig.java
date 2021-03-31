@@ -20,7 +20,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                     .authorizeRequests()
                     .antMatchers("/", "/img/**","/fonts/**","/scss/**","/jquery/**", "/css/**", "/vendor/**", "/image/**", "/js/**", "/h2-console/**", "/profile" , "/login-main","/login").permitAll()
-                    .antMatchers("/api/v1/**").hasRole(Role.GUEST.name())
                     .antMatchers("/api/v1/**").hasRole(Role.USER.name())
                     //.antMatchers("/유료고객 사용 권한").hasRole(Role.PAID_MEMBER.name())
                     .anyRequest().authenticated()
