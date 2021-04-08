@@ -26,16 +26,21 @@ function getExcelFile() {
                 //console.log(JSON.stringify(toJson));
                 var grid = document.getElementById("target-variable-dropdown");
                 var arr1 = workbook.Sheets['Sheet1'];
+                while ( grid.hasChildNodes() ) { grid.removeChild( grid.firstChild ); }
                 for (var key in arr1) {
                     console.log("key : " + key +", value : " + arr1[key]);
-                    var newA = document.createElement("a");
+                    var newA = document.createElement("li");
                     newA.innerHTML = arr1[key]['v'];
                     newA.setAttribute("class","dropdown-item");
                     newA.setAttribute("value",arr1[key]);
+                    newA.setAttribute('href',setElementValue(arr1[key]['v']));
                     grid.appendChild(newA);
                 }
             }
         };
         reader.readAsArrayBuffer(selectedFile);
     }
+}
+function setElementValue(key) {
+    //alert(key);
 }
